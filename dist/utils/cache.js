@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-const CACHE_FILE_NAME = "eslint-trpc-usage.json";
+const CACHE_FILE_NAME = "eslint-trpc-duplication.json";
 const CACHE_DIR = join(process.cwd(), "node_modules", ".cache");
 /**
  * Loads the tRPC usage cache from disk.

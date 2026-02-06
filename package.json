@@ -1,16 +1,24 @@
 {
   "name": "eslint-plugin-trpc-duplication",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "ESLint plugin to detect duplicated tRPC procedure usage",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
-  "keywords": ["eslint", "eslint-plugin", "trpc", "code-quality", "refactoring"],
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "trpc",
+    "code-quality",
+    "refactoring"
+  ],
   "author": "Juan de Tomaso",
   "license": "ISC",
   "type": "commonjs",

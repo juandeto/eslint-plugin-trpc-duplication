@@ -4,17 +4,17 @@
  * CLI for generating tRPC usage cache.
  *
  * Usage:
- *   trpc-usage cache
- *   trpc-usage cache --if-needed
- *   trpc-usage cache --force
- *   trpc-usage cache --verbose
+ *   trpc-duplication cache
+ *   trpc-duplication cache --if-needed
+ *   trpc-duplication cache --force
+ *   trpc-duplication cache --verbose
  */
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { glob } from "glob";
 import * as ts from "typescript";
-import type { TrpcUsageCache, ProcedureUsage } from "./types.js";
+import type { TrpcDuplicationCache, ProcedureUsage } from "./types.js";
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -24,7 +24,7 @@ const ifNeeded = args.includes("--if-needed");
 
 const projectRoot = process.env.INIT_CWD ?? process.cwd();
 const cacheDir = join(projectRoot, "node_modules", ".cache");
-const cacheFile = join(cacheDir, "eslint-trpc-usage.json");
+const cacheFile = join(cacheDir, "eslint-trpc-duplication.json");
 const sourceDirs = ["app", "components", "lib"];
 const sourcePatterns = sourceDirs.map((dir) => `${dir}/**/*.{ts,tsx}`);
 
@@ -36,7 +36,7 @@ interface ProcedureCall {
 }
 
 function printHelp(): void {
-  console.log("Usage: trpc-usage cache [--if-needed] [--force] [--verbose]");
+  console.log("Usage: trpc-duplication cache [--if-needed] [--force] [--verbose]");
 }
 
 function shouldRegenerateCache(): boolean {
@@ -44,7 +44,7 @@ function shouldRegenerateCache(): boolean {
   if (!existsSync(cacheFile)) return true;
 
   try {
-    const cache = JSON.parse(readFileSync(cacheFile, "utf-8")) as TrpcUsageCache;
+    const cache = JSON.parse(readFileSync(cacheFile, "utf-8")) as TrpcDuplicationCache;
     const ageMs = Date.now() - cache.timestamp;
     const oneHour = 60 * 60 * 1000;
     return ageMs > oneHour;
@@ -138,7 +138,7 @@ function extractProcedureFromCall(
   };
 }
 
-async function generateCache(): Promise<TrpcUsageCache> {
+async function generateCache(): Promise<TrpcDuplicationCache> {
   const files = await findSourceFiles();
   const procedureMap = new Map<string, ProcedureUsage>();
 

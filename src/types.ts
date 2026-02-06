@@ -1,7 +1,7 @@
 /**
- * Cache file structure stored at node_modules/.cache/eslint-trpc-usage.json
+ * Cache file structure stored at node_modules/.cache/eslint-trpc-duplication.json
  */
-export interface TrpcUsageCache {
+export interface TrpcDuplicationCache {
   /** Schema version for future migrations */
   version: 1;
 

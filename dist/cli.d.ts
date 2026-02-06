@@ -3,10 +3,10 @@
  * CLI for generating tRPC usage cache.
  *
  * Usage:
- *   trpc-usage cache
- *   trpc-usage cache --if-needed
- *   trpc-usage cache --force
- *   trpc-usage cache --verbose
+ *   trpc-duplication cache
+ *   trpc-duplication cache --if-needed
+ *   trpc-duplication cache --force
+ *   trpc-duplication cache --verbose
  */
 export {};
 //# sourceMappingURL=cli.d.ts.map

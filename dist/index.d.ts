@@ -3,15 +3,15 @@
  *
  * @example
  * ```javascript
- * import trpcUsage from "eslint-plugin-trpc-duplication";
+ * import trpcDuplication from "eslint-plugin-trpc-duplication";
  *
  * export default [
  *   {
  *     plugins: {
- *       "trpc-usage": trpcUsage,
+ *       "trpc-duplication": trpcDuplication,
  *     },
  *     rules: {
- *       "trpc-usage/no-high-frequency-procedures": ["warn", {
+ *       "trpc-duplication/no-high-frequency-procedures": ["warn", {
  *         threshold: 3,
  *       }],
  *     },

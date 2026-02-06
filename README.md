@@ -17,7 +17,7 @@ The cache is generated automatically on install via `postinstall`.
 If you need to regenerate manually:
 
 ```bash
-trpc-usage cache --if-needed
+trpc-duplication cache --if-needed
 ```
 
 ### 2. Configure ESLint
@@ -26,15 +26,15 @@ Add the plugin to your ESLint configuration:
 
 ```javascript
 // eslint.config.js
-import trpcUsage from "eslint-plugin-trpc-duplication";
+import trpcDuplication from "eslint-plugin-trpc-duplication";
 
 export default [
   {
     plugins: {
-      "trpc-usage": trpcUsage,
+      "trpc-duplication": trpcDuplication,
     },
     rules: {
-      "trpc-usage/no-high-frequency-procedures": [
+      "trpc-duplication/no-high-frequency-procedures": [
         "warn",
         {
           threshold: 3,
@@ -56,7 +56,7 @@ Add cache generation to your pre-commit hook:
 {
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "trpc-usage cache --if-needed",
+      "trpc-duplication cache --if-needed",
       "eslint --fix"
     ]
   }
@@ -91,7 +91,7 @@ Add cache generation to your pre-commit hook:
 
 ## Cache Generation
 
-The cache is stored at `node_modules/.cache/eslint-trpc-usage.json` and contains:
+The cache is stored at `node_modules/.cache/eslint-trpc-duplication.json` and contains:
 
 - Procedure usage counts per file
 - Breakdown by hook vs server-side calls
@@ -100,7 +100,7 @@ The cache is stored at `node_modules/.cache/eslint-trpc-usage.json` and contains
 Cache is regenerated:
 - On install (via postinstall)
 - On every commit (via lint-staged, if configured)
-- Manually via `trpc-usage cache --if-needed`
+- Manually via `trpc-duplication cache --if-needed`
 - Automatically if cache is older than 1 hour
 
 ## Examples
@@ -117,7 +117,7 @@ api.pages.get.useQuery({ id: "123" });
 
 ```javascript
 {
-  "trpc-usage/no-high-frequency-procedures": [
+  "trpc-duplication/no-high-frequency-procedures": [
     "warn",
     {
       ignoreProcedures: ["health", "internal.sidebar.list"],
@@ -140,14 +140,14 @@ await api.pages.get({ id: "123" });
 If you see no warnings, ensure the cache is generated:
 
 ```bash
-trpc-usage cache
+trpc-duplication cache
 ```
 
 ### False Positives
 
 The plugin uses AST-based detection, so it should not have false positives. If you see warnings for procedures that aren't actually duplicated:
 
-1. Check the cache: `cat node_modules/.cache/eslint-trpc-usage.json`
+1. Check the cache: `cat node_modules/.cache/eslint-trpc-duplication.json`
 2. Verify file counts match your expectations
 3. Add to `ignoreProcedures` if needed
 

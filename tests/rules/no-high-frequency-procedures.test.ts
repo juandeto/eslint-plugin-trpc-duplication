@@ -2,7 +2,7 @@ import { describe, it, vi, beforeEach } from "vitest";
 import { RuleTester } from "@typescript-eslint/rule-tester";
 import rule from "../../src/rules/no-high-frequency-procedures.js";
 import * as cacheUtils from "../../src/utils/cache.js";
-import type { TrpcUsageCache } from "../../src/types.js";
+import type { TrpcDuplicationCache } from "../../src/types.js";
 
 // Mock cache loader
 vi.mock("../../src/utils/cache.js", () => ({
@@ -26,7 +26,7 @@ describe("no-high-frequency-procedures", () => {
   });
 
   it("reports warning when procedure used in 3+ files", () => {
-    const mockCache: TrpcUsageCache = {
+    const mockCache: TrpcDuplicationCache = {
       version: 1,
       timestamp: Date.now(),
       procedures: {
@@ -61,7 +61,7 @@ describe("no-high-frequency-procedures", () => {
   });
 
   it("detects useSuspenseQuery hooks", () => {
-    const mockCache: TrpcUsageCache = {
+    const mockCache: TrpcDuplicationCache = {
       version: 1,
       timestamp: Date.now(),
       procedures: {
@@ -92,7 +92,7 @@ describe("no-high-frequency-procedures", () => {
   });
 
   it("does not report when procedure used in fewer than threshold files", () => {
-    const mockCache: TrpcUsageCache = {
+    const mockCache: TrpcDuplicationCache = {
       version: 1,
       timestamp: Date.now(),
       procedures: {
@@ -118,7 +118,7 @@ describe("no-high-frequency-procedures", () => {
   });
 
   it("respects ignoreProcedures option", () => {
-    const mockCache: TrpcUsageCache = {
+    const mockCache: TrpcDuplicationCache = {
       version: 1,
       timestamp: Date.now(),
       procedures: {
@@ -153,7 +153,7 @@ describe("no-high-frequency-procedures", () => {
   });
 
   it("detects server-side calls when includeServerCalls is true", () => {
-    const mockCache: TrpcUsageCache = {
+    const mockCache: TrpcDuplicationCache = {
       version: 1,
       timestamp: Date.now(),
       procedures: {
@@ -184,7 +184,7 @@ describe("no-high-frequency-procedures", () => {
   });
 
   it("ignores server-side calls when includeServerCalls is false", () => {
-    const mockCache: TrpcUsageCache = {
+    const mockCache: TrpcDuplicationCache = {
       version: 1,
       timestamp: Date.now(),
       procedures: {
@@ -232,7 +232,7 @@ describe("no-high-frequency-procedures", () => {
   });
 
   it("ignores non-api objects", () => {
-    const mockCache: TrpcUsageCache = {
+    const mockCache: TrpcDuplicationCache = {
       version: 1,
       timestamp: Date.now(),
       procedures: {
@@ -258,7 +258,7 @@ describe("no-high-frequency-procedures", () => {
   });
 
   it("respects custom threshold", () => {
-    const mockCache: TrpcUsageCache = {
+    const mockCache: TrpcDuplicationCache = {
       version: 1,
       timestamp: Date.now(),
       procedures: {
