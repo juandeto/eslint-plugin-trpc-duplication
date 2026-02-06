@@ -5,7 +5,7 @@ import { formatProcedureKey, isTrpcHookCall, isTrpcServerCall } from "../utils/a
 import type { RuleOptions } from "../types.js";
 
 const createRule = ESLintUtils.RuleCreator(
-  (name) => `https://github.com/your-org/eslint-plugin-trpc-usage/blob/main/docs/rules/${name}.md`,
+  (name) => `https://github.com/your-org/eslint-plugin-trpc-duplication/blob/main/docs/rules/${name}.md`,
 );
 
 export default createRule<[RuleOptions], "highFrequencyProcedure">({

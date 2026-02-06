@@ -1,7 +1,7 @@
 import { ESLintUtils } from "@typescript-eslint/utils";
 import { loadCache } from "../utils/cache.js";
 import { formatProcedureKey, isTrpcHookCall, isTrpcServerCall } from "../utils/ast.js";
-const createRule = ESLintUtils.RuleCreator((name) => `https://github.com/your-org/eslint-plugin-trpc-usage/blob/main/docs/rules/${name}.md`);
+const createRule = ESLintUtils.RuleCreator((name) => `https://github.com/your-org/eslint-plugin-trpc-duplication/blob/main/docs/rules/${name}.md`);
 export default createRule({
     name: "no-high-frequency-procedures",
     meta: {

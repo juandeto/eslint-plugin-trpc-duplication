@@ -4,7 +4,7 @@ import noHighFrequencyProcedures from "./rules/no-high-frequency-procedures.js";
  *
  * @example
  * ```javascript
- * import trpcUsage from "eslint-plugin-trpc-usage";
+ * import trpcUsage from "eslint-plugin-trpc-duplication";
  *
  * export default [
  *   {

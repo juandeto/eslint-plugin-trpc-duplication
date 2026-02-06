@@ -3,7 +3,7 @@
  *
  * @example
  * ```javascript
- * import trpcUsage from "eslint-plugin-trpc-usage";
+ * import trpcUsage from "eslint-plugin-trpc-duplication";
  *
  * export default [
  *   {

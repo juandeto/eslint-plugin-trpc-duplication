@@ -1,11 +1,11 @@
-# eslint-plugin-trpc-usage
+# eslint-plugin-trpc-duplication
 
 ESLint plugin to detect high-frequency tRPC procedure usage across the codebase, helping identify candidates for shared hooks.
 
 ## Installation
 
 ```bash
-npm install --save-dev eslint-plugin-trpc-usage
+npm install --save-dev eslint-plugin-trpc-duplication
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Add the plugin to your ESLint configuration:
 
 ```javascript
 // eslint.config.js
-import trpcUsage from "eslint-plugin-trpc-usage";
+import trpcUsage from "eslint-plugin-trpc-duplication";
 
 export default [
   {
